@@ -1,0 +1,27 @@
+App will be used for cataloguing photos of users of the app.
+
+Not logged users should be able to:
+- Create new account
+- Log in to existing user account
+
+Logged users should be able to:
+- Upload photos from their machine
+- Delete their photos
+
+- Create catalogues
+- Rename their catalogues
+- Delete their catalogues
+- Specify wheter certain images or catalogues are visible publicly(can be viewed by any user - logged or not). This can be changed at any time.
+
+- Add their photo to catalogue
+- Remove their photo from their catalogue
+- Move their photo to other catalogue
+
+- Logged users should also have their nickname and profile image visible in the app
+- Nickname should be separate from user credentials
+
+Photos should have a way to annotate that certain people are in the picture without marking where exatcly they are.
+
+Photos should have a date they were taken at. This date is deduced automatically from uploaded photo. Uploader should also be able to change it in case of mismatch.
+
+Catalogues are a groups that have photos associated with them.

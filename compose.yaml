@@ -1,0 +1,12 @@
+include:
+  - microservices/user/compose.yaml
+services:
+  db:
+    container_name: 'imagecatalogue_db'
+    image: mysql:lts
+    environment:
+    # FIXME: Not secure?
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=imagecatalogue
+    ports:
+      - 3306:3306

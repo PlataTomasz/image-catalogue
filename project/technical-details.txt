@@ -1,0 +1,3 @@
+App:
+- Users:
+ - App Should be able to retrieve user avatar from microservice. Microservice should provide an app information on where the avatar image can be found

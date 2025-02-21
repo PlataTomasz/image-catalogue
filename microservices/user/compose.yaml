@@ -1,1 +1,16 @@
 services:
+  appuser_microservice_db:
+    container_name: 'appuser_microservice_db'
+    image: mysql:lts
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=imagecatalogue_appuser_db
+    ports:
+      - 3306:3306
+  appuser_microservice:
+    build: .
+    container_name: 'appuser_microservice'
+    ports:
+      - 8080:8080
+    depends_on:
+      - appuser_microservice_db

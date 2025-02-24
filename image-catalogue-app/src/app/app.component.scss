@@ -1,0 +1,58 @@
+.container {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 2px solid black;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.logo {
+    width: 30px;
+    height: 30px;
+    background-color: yellow;
+    margin-right: 10px;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    border: 2px solid purple;
+    border-radius: 25px;
+    padding: 5px;
+}
+.avatar {
+    width: 30px;
+    height: 30px;
+    background-color: blue;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content {
+    padding: 20px;
+}
+.content a {
+    color: red;
+    font-weight: bold;
+}
+footer {
+    background-color: brown;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}

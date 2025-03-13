@@ -1,4 +1,4 @@
-package com.github.platatomasz.imagecatalogue.user.avatar;
+package com.github.platatomasz.imagecatalogue.appuser.avatar;
 
 import java.io.IOException;
 

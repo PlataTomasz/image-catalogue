@@ -1,4 +1,4 @@
-package com.github.platatomasz.imagecatalogue.user;
+package com.github.platatomasz.imagecatalogue.appuser;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

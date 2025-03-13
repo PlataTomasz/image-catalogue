@@ -7,15 +7,17 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.Data;
 
 @Entity
+@Data
 public class AppUser implements UserDetails, CredentialsContainer {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private Long id;
 	
-	private String username;
+	private String email;
 	private String password;
 	
 	private String nickname;
@@ -30,29 +32,9 @@ public class AppUser implements UserDetails, CredentialsContainer {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNickname() {
-		return nickname;
-	}
-
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-
-	public String getAvatarFileName() {
-		return avatarFileName;
-	}
-
-	public void setAvatarFileName(String avatarFileName) {
-		this.avatarFileName = avatarFileName;
-	}
-
 	@Override
 	public void eraseCredentials() {
-		this.username = null;
+		this.email = null;
 		this.password = null;
 	}
 
@@ -69,7 +51,7 @@ public class AppUser implements UserDetails, CredentialsContainer {
 
 	@Override
 	public String getUsername() {
-		return username;
+		return email;
 	}
 	
 	

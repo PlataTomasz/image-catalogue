@@ -78,6 +78,5 @@ public class AppUserControler {
 				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 			});
 	}
-	
 }
 

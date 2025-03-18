@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.github.platatomasz.imagecatalogue.appuser.avatar.AppUserAvatarService;
+import com.github.platatomasz.imagecatalogue.appuser.avatar.UserAvatarService;
 
 import jakarta.annotation.ManagedBean;
 
@@ -30,9 +30,9 @@ public class AppUserControler {
 	private final AppUserService userService;
 	
 	@Autowired
-	private final AppUserAvatarService avatarService;
+	private final UserAvatarService avatarService;
 	
-	public AppUserControler(AppUserService userService, AppUserAvatarService avatarService) {
+	public AppUserControler(AppUserService userService, UserAvatarService avatarService) {
 		this.userService = userService;
 		this.avatarService = avatarService;
 	}
@@ -62,21 +62,6 @@ public class AppUserControler {
 	@DeleteMapping("/{userId}")
 	public void deleteUser(@PathVariable Long userId) {
 		// TODO:  What should happen with the user? Should he get flagged for deletion and his account deactivated?
-	}
-	
-	@GetMapping("/{userId}/avatar")
-	public ByteArrayResource getUserAvatar(@RequestParam Long userId ) {
-		return userService.getUserById(userId)
-			.map(user -> {
-				byte[] avatarImageData = avatarService.getAvatarFileData(user.getAvatarFileName()).getData();
-				if(avatarImageData.length > 0) {
-					return new ByteArrayResource(avatarImageData);
-				} else {
-					throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-				}
-			}).orElseThrow(() -> {
-				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-			});
 	}
 }
 

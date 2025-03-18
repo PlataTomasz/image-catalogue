@@ -75,4 +75,11 @@ public class JwtService {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
+	public JwtData getJwtFromAuthorizationHeader(String authorizationHeader) {
+		final String BEARER_PREFIX = "Bearer ";
+		String jwtToken = authorizationHeader.substring(BEARER_PREFIX.length());
+		
+		return new JwtData(extractUsername(jwtToken));
+	}
+
 }

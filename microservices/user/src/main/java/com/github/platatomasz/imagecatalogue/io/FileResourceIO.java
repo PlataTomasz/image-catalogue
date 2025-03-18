@@ -1,10 +1,11 @@
 package com.github.platatomasz.imagecatalogue.io;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-
-import org.apache.catalina.webresources.FileResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
+
 /**
  * Loads resource from directory relative to classpath 
  */
@@ -14,7 +15,11 @@ public class FileResourceIO implements ResourceLoader, ResourceSaver {
 
 	@Override
 	public void save(Resource resource, String fileName) throws IOException {
-		// TODO: Implement
+		File fileToSave = new File(getRelativeFilePath(fileName));
+		FileOutputStream outputStream = new FileOutputStream(fileToSave);
+		outputStream.write(resource.getContentAsByteArray());
+		// FIXME: Might be source of leak in case of IOException - unreachable code?
+		outputStream.close();
 	}
 	
 	public String getRelativeFilePath(String fileName) {

@@ -41,7 +41,6 @@ public class AppUser implements UserDetails, CredentialsContainer {
 
 	@Override
 	public void eraseCredentials() {
-		this.email = null;
 		this.password = null;
 	}
 

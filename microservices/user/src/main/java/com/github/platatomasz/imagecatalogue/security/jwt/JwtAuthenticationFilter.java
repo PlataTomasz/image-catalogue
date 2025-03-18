@@ -32,7 +32,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-        final String BEARER_PREFIX = "Bearer ";
+        final String BEARER_PREFIX = "Bearer "; // Extracting Bearer token from Http header should be done in separate service
         
         final String authorizationHeader = request.getHeader("Authorization"); // JWT token from request header = "Bearer " + JWT_TOKEN
         final String jwtToken;

@@ -34,11 +34,19 @@ public class AppUserService implements UserDetailsService {
 	public void updateUser(AppUser user) throws NoSuchElementException {
 		// User user = userRepository.findById(user);
 	}
+	
+	public Optional<AppUser> getUserByName(String username) {
+		return userRepository.findByEmail(username);
+	}
 
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		return userRepository.findByEmail(email).orElseThrow(() -> {
 			throw new UsernameNotFoundException("User with email: " + email + " does not exist!");
 		});
+	}
+
+	public void save(AppUser appUser) {
+		userRepository.save(appUser);
 	}
 }
